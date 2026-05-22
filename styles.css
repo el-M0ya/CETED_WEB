@@ -17,7 +17,8 @@ body {
     position: relative;
     height: 85vh;
     min-height: 600px;
-    background: url(./assets/pasillo.jpg) no-repeat center center/cover;
+    /* Imagen de fondo (puedes cambiar esta URL manualmente cuando quieras) */
+    background: url(assets/pasillo.jpg) no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     padding: 0 8%;
@@ -33,12 +34,12 @@ body {
     z-index: 1;
 }
 
-/* --- Barra de Navegación --- */
+/* --- Barra de Navegación (Modificada sin logo) --- */
 .navbar {
     position: relative;
     z-index: 2;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Alinea todo el menú a la derecha directamente */
     align-items: center;
     padding: 30px 0;
     width: 100%;
@@ -51,6 +52,7 @@ body {
     gap: 30px;
 }
 
+/* Animación sutil de línea inferior para los enlaces del menú */
 .nav-links .nav-item {
     color: #cbd5e1;
     text-decoration: none;
@@ -82,6 +84,7 @@ body {
     transform-origin: bottom left;
 }
 
+/* Botón de Contacto del Menú con animación de pulso suave */
 .nav-links .btn-nav {
     border: 1px solid #5784a6;
     background-color: rgba(87, 132, 166, 0.4);
@@ -120,6 +123,7 @@ body {
     margin-bottom: 40px;
 }
 
+/* Botones Principales con transiciones */
 .hero-buttons {
     display: flex;
     gap: 20px;
@@ -157,12 +161,12 @@ body {
     transform: translateY(-2px);
 }
 
-/* --- Sección de Servicios --- */
+/* --- Sección de Tarjetas (Con Animación de Elevación y Escala) --- */
 .services-container {
     position: relative;
     z-index: 3;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     padding: 0 8% 80px 8%;
     margin-top: -60px;
@@ -178,14 +182,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Suaviza la transición al pasar el cursor */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+/* Efecto Hover en Tarjetas: se eleva un poco y la sombra se vuelve más profunda */
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
 }
 
+/* Efecto de rotación leve en los iconos al pasar el cursor por la tarjeta */
 .card-icon {
     font-size: 2.5rem;
     color: #334155;
@@ -211,6 +218,7 @@ body {
     max-width: 260px;
 }
 
+/* Botones de las tarjetas con efecto de brillo en hover */
 .btn-card {
     width: 80%;
     padding: 12px 0;
@@ -232,24 +240,55 @@ body {
 .btn-blue-medium { background-color: #4b7396; }
 .btn-blue-dark { background-color: #3e5d80; }
 
-/* --- Computadora Interactiva --- */
+/* --- Adaptabilidad Móvil --- */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: center;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
+    .services-container {
+        margin-top: 20px;
+        padding-bottom: 40px;
+    }
+}
+   
+
+
+
+
+/* --- Nueva Sección: Computadora Interactiva --- */
 .laptop-section {
     position: relative;
-    background-color: #0a1424;
+    background-color: #0a1424; /* Azul profundo y oscuro coordinado */
     padding: 100px 8% 80px 8%;
+    display: block;
+    margin-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Contenedor relativo para posicionamiento de los componentes */
 .interactive-controls {
     position: relative;
     width: 100%;
     text-align: center;
 }
 
+/* Ocultar inputs lógicos por defecto */
 .interactive-controls input[type="radio"] {
     display: none;
 }
 
+/* Estilo para los botones superiores */
 .tab-button {
     display: inline-block;
     padding: 12px 24px;
@@ -270,6 +309,7 @@ body {
     transform: translateY(-2px);
 }
 
+/* Envoltura para distribución del bloque de texto e interfaz hardware */
 .dynamic-content-wrapper {
     display: block;
     float: left;
@@ -279,6 +319,7 @@ body {
     padding-top: 40px;
 }
 
+/* Bloques de textos individuales */
 .content-block {
     position: absolute;
     width: 45%;
@@ -304,7 +345,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* Hardware de la Laptop (Proporciones Arregladas) */
+/* --- Arquitectura de la Computadora (CSS Puro) --- */
 .laptop-hardware {
     display: block;
     float: right;
@@ -314,6 +355,7 @@ body {
     margin-bottom: 40px;
 }
 
+/* Estructura externa de la pantalla */
 .laptop-screen {
     background: #1e293b;
     border: 14px solid #111827;
@@ -324,6 +366,7 @@ body {
     transition: transform 0.5s ease;
 }
 
+/* Lente de la cámara frontal */
 .laptop-camera {
     position: absolute;
     top: -9px;
@@ -335,27 +378,24 @@ body {
     border-radius: 50%;
 }
 
+/* Matriz interna de despliegue */
 .screen-display {
     position: relative;
     width: 100%;
-    padding-top: 62.5%; /* Mantiene relación 16:10 real y evita el colapso */
+    padding-top: 0%; /* Relación de aspecto estándar 16:10 */
     background-color: #000;
     overflow: hidden;
 }
 
+/* Capa de imagen 1*/
 .laptop-image {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Hace que la foto llene la pantalla sin deformarse */
     display: block;
-    opacity: 0;
-    z-index: 1;
-    transition: opacity 0.4s ease;
 }
 
+/* Base inferior del chasis */
 .laptop-base {
     width: 116%;
     height: 14px;
@@ -366,6 +406,7 @@ body {
     box-shadow: 0 15px 30px rgba(0,0,0,0.7);
 }
 
+/* Muesca central para apertura de tapa */
 .base-notch {
     position: absolute;
     top: 0;
@@ -377,7 +418,7 @@ body {
     border-radius: 0 0 4px 4px;
 }
 
-/* Lógica de Control Activo */
+/* --- Lógica Interactiva del Selector (Pura vinculación CSS) --- */
 #tab1:checked ~ .tab-button[for="tab1"],
 #tab2:checked ~ .tab-button[for="tab2"],
 #tab3:checked ~ .tab-button[for="tab3"] {
@@ -387,6 +428,7 @@ body {
     box-shadow: 0 0 15px rgba(87, 132, 166, 0.4);
 }
 
+/* Conmutación de bloques de texto interactivos */
 #tab1:checked ~ .dynamic-content-wrapper #content1,
 #tab2:checked ~ .dynamic-content-wrapper #content2,
 #tab3:checked ~ .dynamic-content-wrapper #content3 {
@@ -396,39 +438,71 @@ body {
     z-index: 5;
 }
 
-#tab1:checked ~ .laptop-hardware .screen-display #image1,
-#tab2:checked ~ .laptop-hardware .screen-display #image2,
-#tab3:checked ~ .laptop-hardware .screen-display #image3 {
+/* Conmutación y reproducción simulada visual de los videos */
+#tab1:checked ~ .laptop-hardware #video1,
+#tab2:checked ~ .laptop-hardware #video2,
+#tab3:checked ~ .laptop-hardware #video3 {
     opacity: 1;
     z-index: 2;
 }
 
+/* Limpieza de flotados en el layout de sección */
 .laptop-section::after {
     content: "";
     display: table;
     clear: both;
 }
 
+/* Animación reactiva para la pantalla completa al interactuar */
 .interactive-controls input[type="radio"]:checked ~ .laptop-hardware .laptop-screen {
     transform: scale(1.01) rotateX(1deg);
 }
 
-/* --- Sección Marketing (Flechas & Tarjetas Oscuras) --- */
-.marketing-wrapper {
-    position: relative;
-    width: 100%;
+/* --- Adaptabilidad Móvil Adaptada --- */
+@media (max-width: 900px) {
+    .dynamic-content-wrapper, .laptop-hardware {
+        width: 100%;
+        float: none;
+        max-width: 100%;
+    }
+    .content-block {
+        position: relative;
+        width: 100%;
+        margin-bottom: 40px;
+        display: none;
+    }
+    #tab1:checked ~ .dynamic-content-wrapper #content1,
+    #tab2:checked ~ .dynamic-content-wrapper #content2,
+    #tab3:checked ~ .dynamic-content-wrapper #content3 {
+        display: block;
+    }
+    .laptop-base {
+        width: 104%;
+        margin-left: -2%;
+    }
+    .tab-button {
+        margin: 5px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
 }
 
+
+
+
+
+
+/* --- SECCIÓN INTEGRADA: FLECHAS DE MARKETING Y NEGOCIOS --- */
 .marketing-hero-container {
     position: relative;
     width: 100%;
-    height: 40vh;
-    min-height: 300px;
-    background-color: #0a1424;
+    height: 50vh; /* Altura optimizada para que conecte bien debajo de la laptop */
+    background-color: #0a1424; /* Mismo azul oscuro profundo de la computadora */
     overflow: hidden;
     border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
+/* Capa azul de transición */
 .marketing-blue-overlay {
     position: absolute;
     top: 0;
@@ -440,6 +514,7 @@ body {
     pointer-events: none;
 }
 
+/* Contenedor de las flechas en movimiento */
 .marketing-arrows-bg {
     position: absolute;
     width: 100%;
@@ -451,17 +526,19 @@ body {
     opacity: 0.5;
 }
 
+/* Estilo lineal de las flechas de crecimiento */
 .arrow-element {
     position: absolute;
     bottom: -100px;
     width: 35px;
     height: 35px;
-    border-top: 5px solid #5784a6;
+    border-top: 5px solid #5784a6; /* Nuestro azul corporativo */
     border-left: 5px solid #5784a6;
     transform: rotate(45deg);
     animation: marketingMoveUp 8s linear infinite;
 }
 
+/* Línea de gráfica ascendente pegada a la flecha */
 .arrow-element::after {
     content: '';
     position: absolute;
@@ -473,44 +550,58 @@ body {
     left: -5px;
 }
 
+/* Variaciones de velocidad y posición para las flechas de fondo */
 .arrow-element:nth-child(1) { left: 12%; animation-duration: 7s; animation-delay: 0s; scale: 0.8; }
 .arrow-element:nth-child(2) { left: 32%; animation-duration: 10s; animation-delay: 2s; scale: 1.1; opacity: 0.6; }
 .arrow-element:nth-child(3) { left: 52%; animation-duration: 6s; animation-delay: 1s; scale: 0.7; }
 .arrow-element:nth-child(4) { left: 72%; animation-duration: 9s; animation-delay: 3s; scale: 1.2; }
 .arrow-element:nth-child(5) { left: 88%; animation-duration: 8s; animation-delay: 1.5s; scale: 0.9; }
 
+/* Animación de subida infinita */
 @keyframes marketingMoveUp {
-    0% { transform: translateY(0) rotate(45deg); opacity: 0; }
-    15% { opacity: 1; }
-    85% { opacity: 0.8; }
-    100% { transform: translateY(-50vh) rotate(45deg); opacity: 0; }
+    0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-60vh) rotate(45deg);
+        opacity: 0;
+    }
 }
 
+/* --- SECCIÓN INTEGRADA: LAS TARJETAS OSCURAS --- */
 .marketing-cards-section {
     position: relative;
     width: 100%;
-    background-color: #0d1a2d;
+    background-color: #0d1a2d; /* Continuidad del color oscuro sin cortes bruscos */
     padding-bottom: 100px;
 }
 
 .marketing-cards-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 35px; 
     max-width: 1200px;
-    margin: -140px auto 0 auto;
+    margin: 0 auto;
     padding: 0 20px;
+    margin-top: -140px; /* Sube las tarjetas sobre el fondo de las flechas animadas */
     position: relative;
     z-index: 10;
 }
 
+/* --- DISEÑO DE LAS TARJETAS (ESTILO APEX STRATEGY) --- */
 .marketing-card {
     position: relative;
-    background-color: #162438;
+    background-color: #162438; /* Azul medianoche elegante en lugar de blanco plano */
     border: 1px solid rgba(255, 255, 255, 0.05);
-    width: 320px;
-    min-height: 280px; /* Arreglado: Permite adaptabilidad si el texto crece */
+    width: 330px;
+    height: 330px;
     border-radius: 30px; 
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
     display: flex;
@@ -518,15 +609,15 @@ body {
     align-items: center;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     cursor: pointer;
-    padding-bottom: 30px;
 }
 
+/* Pestaña circular superior coordinada */
 .marketing-circle-tab {
     position: absolute;
     top: -30px; 
     width: 65px;
     height: 65px;
-    background-color: #24354f;
+    background-color: #24354f; /* Gris azulado integrado */
     border: 1px solid rgba(87, 132, 166, 0.2);
     border-radius: 50%;
     display: flex;
@@ -541,232 +632,291 @@ body {
     width: 55%;
     height: 55%;
     object-fit: contain;
-    filter: brightness(0.9);
+    filter: brightness(0.9); /* Suaviza el impacto visual de los iconos */
 }
 
 .marketing-card-content {
-    padding: 55px 25px 0 25px; 
+    padding: 55px 25px 25px 25px; 
     width: 100%;
-    text-align: center;
+    height: 100%;
 }
 
-.marketing-card-content h3 {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-    font-weight: 600;
-}
-
-.marketing-card-content p {
-    font-size: 0.9rem;
-    color: #94a3b8;
-    line-height: 1.5;
-}
-
+/* --- ANIMACIONES HOVER (ELEVACIÓN Y ILUMINACIÓN) --- */
 .marketing-card:hover {
     transform: translateY(-12px);
-    background-color: #1a2b42;
+    background-color: #1a2b42; /* Aclara ligeramente la tarjeta al pasar el cursor */
     border-color: rgba(87, 132, 166, 0.3);
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 15px rgba(87, 132, 166, 0.1);
 }
 
 .marketing-card:hover .marketing-circle-tab {
-    background-color: #5784a6;
+    background-color: #5784a6; /* El círculo se ilumina con el azul principal */
     box-shadow: 0 0 15px rgba(87, 132, 166, 0.4);
 }
 
-/* --- Sección Cursos (Libros 3D) --- */
-.courses-section {
-    background-color: #0d1a2d;
-    padding: 80px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+/* --- ADAPTACIÓN PARA PANTALLAS MÓVILES --- */
+@media (max-width: 900px) {
+    .marketing-cards-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: -60px;
+        gap: 65px;
+    }
+    .marketing-hero-container {
+        height: 35vh;
+    }
 }
 
-.courses-header {
-    text-align: center;
-    margin-bottom: 60px;
-}  
 
-.courses-header h2 {
-    color: #ffffff;
-    font-size: 2.2rem;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-}
 
-.courses-header .header-line {
-    width: 60px;
-    height: 3px;
-    background-color: #5784a6;
-    margin: 0 auto;
-    border-radius: 2px;
-}
 
-.diagram-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    position: relative;
-    user-select: none;
+
+
+/* =================================================================
+   ESTILOS COMPONENTE: CARRUSEL DE LIBROS 3D CON HOVER GLOW
+   ================================================================= */
+
+/* Contenedor general aislado */
+.courses-carousel-section {
     width: 100%;
-    max-width: 1100px;
-}
-
-.node {
-    position: relative;
-    width: 300px;
-    height: 300px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
 }
 
+/* Dimensiones fijas de visualización del carrusel */
+.carousel-track-container {
+    width: 340px; 
+    height: 460px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Riel elástico de traslación */
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+    height: 100%;
+}
+
+/* Tarjetas individuales contenedoras */
+.book-card {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+/* Activa la interacción del libro visible en pantalla */
+.book-card.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Espacio tridimensional del libro */
 .book-container {
-    width: 200px;
-    height: 200px;
-    z-index: 3;
-    perspective: 1000px;
+    perspective: 2000px;
 }
 
 .book {
-    width: 100%;
-    height: 100%;
     position: relative;
+    width: 260px;
+    height: 380px;
     transform-style: preserve-3d;
-    transition: transform 0.5s ease;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.book-cover {
+/* Rotación tridimensional elegante al posar el cursor */
+.book-container:hover .book {
+    transform: rotateX(5deg) rotateY(-25deg);
+}
+
+.cover, .page {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #2b5c9e;
+    top: 0;
+    left: 0;
     border-radius: 4px 12px 12px 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    transform-origin: left center;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    border-left: 4px solid #1a3668;
+    box-sizing: border-box;
 }
 
-.icon {
-    width: 42px;
-    height: 42px;
-    fill: #ffffff;
-    transition: transform 0.3s ease;
-}
-
-.book-inside {
-    position: absolute;
-    top: 2%;
-    left: 2%;
-    width: 96%;
-    height: 96%;
-    background-color: #ffffff;
-    border-radius: 2px 10px 10px 2px;
-    z-index: 4;
-    padding: 15px;
+/* --- PORTADA CON EFECTO DE BRILLO --- */
+.cover.front {
+    background-color: #1e293b; /* Azul Marino Corporativo Profundo */
+    color: #ffffff;
+    padding: 35px 25px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    box-shadow: inset 3px 0 10px rgba(0,0,0,0.2);
+    justify-content: space-between;
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+    z-index: 3;
+    backface-visibility: hidden;
+    border-left: 6px solid #0284c7; /* Lomo original en Azul de la Web */
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.15);
 }
 
-.book-inside h3 {
-    font-size: 1.1rem;
-    color: #0a1424;
-    margin-bottom: 8px;
+/* Animación de apertura y destello azul al hacer Hover */
+.book-container:hover .cover.front {
+    transform: rotateY(-155deg);
+    border-left-color: #38bdf8; /* Lomo cambia a azul neón brillante */
+    /* Sombra proyectada + Brillo difuminado exterior (Glow Effect) */
+    box-shadow: -15px 15px 30px rgba(0, 0, 0, 0.2), 
+                -5px 0px 25px rgba(56, 189, 248, 0.4); 
+}
+
+.book-category {
+    font-size: 9px;
     font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #38bdf8; /* Azul cielo */
 }
 
-.book-inside p {
-    font-size: 0.75rem;
-    color: #64748b;
-    line-height: 1.4;
-    margin-bottom: 12px;
+.book-title {
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1.3;
+    margin: 10px 0 0 0;
+    color: #f8fafc;
 }
 
-.book-btn {
-    display: inline-block;
-    padding: 6px 14px;
-    background-color: #5784a6;
-    color: #ffffff;
-    font-size: 0.7rem;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
-}
-
-.book-btn:hover {
-    background-color: #0a1424;
-}
-
-.semi-dark {
-    position: absolute;
-    width: 270px;
-    height: 270px;
-    border: 18px solid transparent;
-    border-left-color: #5784a6;
-    border-bottom-color: #5784a6;
-    border-radius: 50%;
-    transform: rotate(45deg);
-    z-index: 2;
-    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-    opacity: 0.4;
-}
-
-.dashed-ring {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border: 2px dashed rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    z-index: 1;
-    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
-    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.connector {
-    width: 80px;
+.minimal-line {
+    width: 35px;
     height: 2px;
-    border-top: 2px dashed rgba(255, 255, 255, 0.2);
+    background-color: #38bdf8;
+    margin-top: 15px;
 }
 
-.node:hover .book-cover {
-    transform: rotateY(-145deg);
-    background-color: #5784a6;
-    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.4);
+.action-text {
+    font-size: 11px;
+    color: #64748b;
+    margin: 0;
+    transition: all 0.4s ease;
 }
 
-.node:hover .semi-dark {
-    transform: rotate(110deg);
-    opacity: 0.8;
+/* Expansión tipográfica y destello de texto */
+.book-container:hover .action-text {
+    color: #38bdf8;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
 }
 
-.node:hover .dashed-ring {
-    transform: rotate(-45deg);
+/* --- PÁGINA INTERIOR CON BOTÓN --- */
+.page {
+    background-color: #ffffff;
+    color: #334155;
+    padding: 30px 25px;
+    z-index: 2;
+    border-left: 1px solid #e2e8f0;
+    box-shadow: inset 12px 0 25px rgba(0,0,0,0.03), 0 10px 25px rgba(0,0,0,0.05);
 }
 
-.node:hover .icon {
-    transform: scale(0.9);
+.page-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* --- Footer --- */
+.page-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 10px 0;
+}
+
+.page-content p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #64748b;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* Botón Minimalista 'Ver Más' */
+.btn-more {
+    display: inline-block;
+    text-align: center;
+    background-color: #0284c7; 
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-more:hover {
+    background-color: #0369a1; 
+    transform: translateY(-1px);
+    box-shadow: 0 0 12px rgba(2, 132, 199, 0.5); /* Destello sutil en botón */
+}
+
+/* Portada Trasera */
+.cover.back {
+    background-color: #0f172a;
+    z-index: 1;
+    transform: translateZ(-3px);
+}
+
+/* --- BOTONES DE INTERFAZ (FLECHAS) --- */
+.carousel-nav-btn {
+    background: none;
+    border: none;
+    color: #ffffff; 
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+    transition: color 0.3s, transform 0.2s;
+    user-select: none;
+}
+
+.carousel-nav-btn:hover {
+    color: #0284c7;
+    transform: scale(1.15);
+}
+
+.prev-btn { margin-right: 20px; }
+.next-btn { margin-left: 20px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================================
+   FOOTER: ESTÉTICA INTEGRADA CON BOMBILLO GRANDE Y NUEVO ESTILO
+   ======================================================== */
 .main-footer {
-    background-color: #0a1424;
+    background-color: #0a1424; /* Mismo azul marino ultra oscuro que la base de la laptop */
     width: 100%;
-    padding: 40px 8%;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Separador sutil */
     user-select: none;
 }
 
@@ -780,13 +930,18 @@ body {
     gap: 25px;
 }
 
+/* Distribución de los lados laterales */
 .footer-side {
     flex: 1;
+    font-family: Arial, sans-serif;
     font-size: 0.85rem;
-    color: #64748b;
+    color: #64748b; /* Gris azulado suave */
 }
 
-.footer-left { text-align: left; }
+.footer-left {
+    text-align: left;
+}
+
 .footer-right {
     text-align: right;
     display: flex;
@@ -800,14 +955,18 @@ body {
     transition: color 0.3s ease;
 }
 
-.footer-right a:hover { color: #5784a6; }
+.footer-right a:hover {
+    color: #5784a6; /* Iluminación en azul corporativo */
+}
 
+/* --- CONTENEDOR DEL BOMBILLO CENTRAL --- */
 .footer-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Envoltura relativa para controlar la frase flotante sobre el bombillo */
 .bulb-wrapper {
     position: relative;
     display: flex;
@@ -815,24 +974,27 @@ body {
     align-items: center;
 }
 
+/* --- LA FRASE FLOTANTE (FUERA DEL FOOTER) --- */
 .bulb-quote {
     position: absolute;
-    bottom: 85px;
+    bottom: 85px; /* Ajustado hacia arriba para que libre la nueva dimensión del bombillo */
     white-space: nowrap;
+    font-family: Arial, sans-serif;
     font-size: 0.85rem;
-    color: #5784a6;
-    background-color: #162438;
+    color: #5784a6; /* Nuestro azul principal */
+    background-color: #162438; /* Fondo oscuro integrado */
     padding: 6px 14px;
     border-radius: 20px;
     border: 1px solid rgba(87, 132, 166, 0.2);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transform: translateY(10px);
+    opacity: 0; /* Oculto por defecto */
+    transform: translateY(10px); /* Efecto inicial de caída para la animación */
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    pointer-events: none;
+    pointer-events: none; /* Evita parpadeos si el mouse pasa por encima de la frase */
     z-index: 20;
 }
 
+/* Pequeña flecha/triángulo decorativo debajo del cartel de la frase */
 .bulb-quote::after {
     content: '';
     position: absolute;
@@ -842,13 +1004,16 @@ body {
     border-width: 6px 6px 0;
     border-style: solid;
     border-color: #162438 transparent transparent;
+    display: block;
+    width: 0;
 }
 
+/* --- CONTENEDOR NUEVO: BOMBILLA GRANDE --- */
 .bulb-icon-container {
-    width: 68px;
+    width: 68px; /* Escalado a un tamaño notable y premium */
     height: 68px;
-    background-color: #162438;
-    border: 2px solid #0d1a2d;
+    background-color: #162438; 
+    border: 2px solid #0d1a2d; /* Bordes protectores oscuros */
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -858,121 +1023,242 @@ body {
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+/* Ajustes de escala del dibujo SVG */
 .bulb-svg {
-    width: 42px;
+    width: 42px; /* Mayor tamaño estructural */
     height: 42px;
 }
 
-.bulb-glass-body, .bulb-metal-base {
+/* Elementos estructurales externos con bordes negros sólidos */
+.bulb-glass-body,
+.bulb-metal-base {
     fill: none;
-    stroke: #090e17;
+    stroke: #090e17; /* Contorno negro profundo de alta definición */
     stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
     transition: stroke 0.3s ease, fill 0.3s ease;
 }
 
-.bulb-glow-rays, .bulb-internal-filament {
+/* Rayos de energía y filamento interior con el azul corporativo de base */
+.bulb-glow-rays,
+.bulb-internal-filament {
     fill: none;
-    stroke: #5784a6;
+    stroke: #5784a6; 
     stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;
     transition: all 0.3s ease;
 }
 
-.bulb-wrapper:hover .bulb-quote { opacity: 1; transform: translateY(0); }
+
+/* ========================================================
+   ESTADOS DE INTERACCIÓN (HOVER GENERAL)
+   ======================================================== */
+
+/* Activación de la frase flotante */
+.bulb-wrapper:hover .bulb-quote {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dinámica física del contenedor circular */
 .bulb-wrapper:hover .bulb-icon-container {
-    transform: translateY(-4px);
-    background-color: #1a2b42;
+    transform: translateY(-4px); /* Ligera elevación elegante */
+    background-color: #1a2b42; /* Integración tonal de iluminación interna */
     box-shadow: 0 10px 25px rgba(87, 132, 166, 0.3);
 }
 
-.bulb-wrapper:hover .bulb-glass-body { stroke: #24354f; fill: rgba(87, 132, 166, 0.08); }
-.bulb-wrapper:hover .bulb-metal-base { stroke: #1c2a3e; }
+/* SISTEMA DE ENCENDIDO (Luz incandecente y suavizado de bordes oscuros) */
+.bulb-wrapper:hover .bulb-glass-body {
+    stroke: #24354f; /* Suaviza el borde negro para dar paso a la refracción de luz */
+    fill: rgba(87, 132, 166, 0.08); /* Tinte azul translúcido sutil dentro del cristal */
+}
+
+.bulb-wrapper:hover .bulb-metal-base {
+    stroke: #1c2a3e;
+}
+
 .bulb-wrapper:hover .bulb-internal-filament,
 .bulb-wrapper:hover .bulb-glow-rays {
-    stroke: #6fa6cf;
-    filter: drop-shadow(0 0 4px rgba(111, 166, 207, 0.85)) drop-shadow(0 0 10px rgba(111, 166, 207, 0.4));
+    stroke: #6fa6cf; /* Transición a un azul eléctrico brillante de alta potencia */
+    filter: drop-shadow(0 0 4px rgba(111, 166, 207, 0.85)) drop-shadow(0 0 10px rgba(111, 166, 207, 0.4)); /* Doble capa de resplandor neón */
 }
 
-/* ========================================================
-   SISTEMA MEDIA QUERIES RESPONSIVE (PC / TABLET / MÓVIL)
-   ======================================================== */
-
-/* --- Optimización para Tablets y pantallas medianas (< 960px) --- */
-@media (max-width: 960px) {
-    .hero-content h1 { font-size: 2.8rem; }
-    
-    /* Configuración Laptop Responsiva */
-    .dynamic-content-wrapper {
-        width: 100%;
-        float: none;
-        padding-top: 20px;
-        min-height: auto;
-    }
-    .content-block {
-        position: relative;
-        width: 100%;
-        opacity: 0;
-        display: none;
-        transform: none;
-    }
-    
-    /* Mostrar de forma limpia los bloques en móvil */
-    #tab1:checked ~ .dynamic-content-wrapper #content1,
-    #tab2:checked ~ .dynamic-content-wrapper #content2,
-    #tab3:checked ~ .dynamic-content-wrapper #content3 {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .laptop-hardware {
-        width: 80%;
-        float: none;
-        margin: 40px auto 0 auto;
-    }
-    .laptop-base { width: 108%; margin-left: -4%; }
-    
-    /* Ajustes Tarjetas de Marketing */
-    .marketing-cards-container { margin-top: -60px; gap: 60px; }
-}
-
-/* --- Optimización estricta para Teléfonos Móviles (< 768px) --- */
+/* --- ADAPTACIÓN RESPONSIVA PARA MÓVILES --- */
 @media (max-width: 768px) {
-    /* Navbar compacta */
-    .navbar { justify-content: center; padding: 20px 0; }
-    .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .nav-links .btn-nav { padding: 8px 16px; }
-
-    /* Contenido Hero */
-    .hero-section { padding: 0 5%; height: auto; min-height: 80vh; }
-    .hero-content { text-align: center; padding-top: 40px; padding-bottom: 40px; }
-    .hero-content h1 { font-size: 2.1rem; }
-    .hero-buttons { flex-direction: column; gap: 12px; }
-    
-    /* Contenedor de Servicios */
-    .services-container { margin-top: 20px; padding: 0 5% 60px 5%; }
-    
-    /* Laptop controles */
-    .laptop-section { padding: 60px 5%; }
-    .tab-button { margin: 4px; padding: 10px 14px; font-size: 0.85rem; }
-    .laptop-hardware { width: 100%; }
-    
-    /* Diagrama de Libros a vertical */
-    .diagram-container { flex-direction: column; gap: 30px; }
-    .connector {
-        width: 2px;
-        height: 40px;
-        border-top: none;
-        border-left: 2px dashed rgba(255, 255, 255, 0.2);
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
     }
-    
-    /* Footer colapsado */
-    .main-footer { padding: 40px 5%; }
-    .footer-container { flex-direction: column; text-align: center; gap: 20px; }
-    .footer-side { text-align: center; flex: none; width: 100%; }
-    .footer-right { justify-content: center; }
-    .footer-center { order: -1; margin-bottom: 10px; } /* Sube la bombilla al tope en móvil */
+    .footer-side {
+        text-align: center;
+        flex: none;
+        width: 100%;
+    }
+    .footer-right {
+        justify-content: center;
+    }
+    .footer-center {
+        order: -1; /* Posiciona el bombillo arriba en pantallas pequeñas */
+        margin-bottom: 15px;
+    }
+    .bulb-quote {
+        bottom: 80px;
+    }
 }
+
+/* ==========================================================================
+                        PARTE ANIMADA DE LA LAPTOP
+   ========================================================================== */
+
+/* ==========================================================================
+   ESTILOS BASE Y CONTENEDOR RECEPTIVO
+   ========================================================================== */
+.screen-display {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 320px;
+    margin: 20px auto;
+    background: radial-gradient(circle at center, #16223f 0%, #0b111e 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.ceted-location-container:hover {
+    border-color: rgba(0, 168, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 168, 255, 0.15);
+}
+
+
+
+/* ==========================================================================
+   ZONA INTERACTIVA: ICONO Y EDIFICIO
+   ========================================================================== */
+.interactive-zone {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Animación y estado inicial del Marcador */
+.marker-wrapper {
+    position: absolute;
+    top: 15px;
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: floatingEffect 3s ease-in-out infinite;
+}
+
+.location-icon {
+    font-size: 32px;
+    color: #ffffff;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+    z-index: 2;
+    transition: color 0.4s ease, filter 0.4s ease;
+}
+
+/* Brillo tecnológico azul debajo del ícono */
+.marker-glow {
+    position: absolute;
+    bottom: -5px;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(0, 168, 255, 0.6) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+
+/* Cuando pasa el cursor: baja al edificio y cambia a azul */
+.ceted-location-container:hover .marker-wrapper {
+    animation-play-state: paused;
+    transform: translateY(65px); /* Descenso exacto al techo del edificio */
+}
+
+.ceted-location-container:hover .location-icon {
+    color: #00a8ff;
+    filter: drop-shadow(0 0 15px #00a8ff);
+}
+
+/* Silueta minimalista de empresa/edificio */
+.building-silhouette {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    opacity: 0.25;
+    transition: opacity 0.4s ease;
+    margin-bottom: 5px;
+}
+
+.ceted-location-container:hover .building-silhouette {
+    opacity: 0.6;
+}
+
+.building-block {
+    background: linear-gradient(to top, rgba(255,255,255,0.3), rgba(255,255,255,0.05));
+    border-top: 1px solid rgba(255,255,255,0.4);
+}
+
+.block-1 { width: 25px; height: 35px; }
+.block-2 { width: 45px; height: 50px; } /* Punto de contacto */
+.block-3 { width: 20px; height: 25px; }
+
+/* ==========================================================================
+   TEXTOS Y TIPOGRAFÍA (Minimalista y Pequeño)
+   ========================================================================== */
+.info-wrapper {
+    margin-top: 15px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s; /* Delay sutil */
+}
+
+.info-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.title-ceted {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 3px;
+    margin: 0 0 6px 0;
+}
+
+.address-text {
+    font-size: 10px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.5px;
+    margin: 2px 0;
+}
+
+/* ==========================================================================
+   ANIMACIONES CLAVE
+   ========================================================================== */
+@keyframes floatingEffect {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
