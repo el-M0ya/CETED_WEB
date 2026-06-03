@@ -266,7 +266,7 @@ body {
 
 
 
-/* --- Nueva Sección: Computadora Interactiva --- */
+/* --- Computadora Interactiva --- */
 .laptop-section {
     position: relative;
     background-color: #0a1424; /* Azul profundo y oscuro coordinado */
@@ -629,8 +629,9 @@ body {
 }
 
 .marketing-card-icon {
-    width: 55%;
-    height: 55%;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
     object-fit: contain;
     filter: brightness(0.9); /* Suaviza el impacto visual de los iconos */
 }
